@@ -185,14 +185,14 @@ const Homepage = () => {
   const [selectedButton, setSelectedButton] = useState(1);
   const [truee, setTrue] = useState(false);
   const [open, setOpen] = useState(false);
-  const fetchData = async () => {
-    const response = await fetch("http://localhost:3000/");
-    const data: { items: Item[] } = await response.json();
-    setItems(data.items);
-    console.log(data.items);
-    console.log("Fetched data:", data);
-  };
   useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("http://localhost:3000/");
+      const data: { items: Item[] } = await response.json();
+      setItems(data.items);
+      console.log(data.items);
+      console.log("Fetched data:", data);
+    };
     fetchData();
   }, []);
   return (
