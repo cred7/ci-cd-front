@@ -46,6 +46,7 @@ const Homepage = () => {
               </div>
               <div className="flex flex-row">
                 {" "}
+                {/* by pass protection is on */}
                 <h1 className="text-3xl bg-transparent text-white">Maven</h1>
                 <input
                   type="text"
