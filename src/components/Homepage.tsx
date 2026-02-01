@@ -26,6 +26,7 @@ const Homepage = () => {
   const [truee, setTrue] = useState(false);
   const [open, setOpen] = useState(false);
   useEffect(() => {
+    try{
     const fetchData = async () => {
       const response = await fetch("http://localhost:3000/");
       const data: { items: Item[] } = await response.json();
@@ -33,6 +34,16 @@ const Homepage = () => {
       console.log(data.items);
       console.log("Fetched data:", data);
     };
+    }catch{
+      setItems([{
+         title: "string",
+        startTime: "string",
+  staff: "number",
+  photo: [{ href: "string" }],
+  Author: "string",
+  description: "string",
+      }])
+    }
     fetchData();
   }, []);
 
