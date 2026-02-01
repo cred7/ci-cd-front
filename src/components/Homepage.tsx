@@ -204,9 +204,8 @@ const Homepage = () => {
       }
     };
     fetchData();
-    console.log("Fetched data:", itemss);
   }, []);
-
+  console.log("Fetched data:", itemss);
   const [capturePhotos, setCapturePhotos] = useState(false);
   const [photoUrl, setPhotoUrl] = useState<string | null>(null);
 
