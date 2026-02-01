@@ -178,20 +178,33 @@ const items: Item[] = [
   },
 ];
 const Homepage = () => {
-  //   const [items, setItems] = useState<Item[]>([]);
+  const [itemss, setItems] = useState<Item[]>([]);
   const [selectedButton, setSelectedButton] = useState(1);
   const [truee, setTrue] = useState(false);
   const [open, setOpen] = useState(false);
-  //   useEffect(() => {
-  //     const fetchData = async () => {
-  //       const response = await fetch("http://localhost:3000/");
-  //       const data: { items: Item[] } = await response.json();
-  //       setItems(data.items);
-  //       console.log(data.items);
-  //       console.log("Fetched data:", data);
-  //     };
-  //     fetchData();
-  //   }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/");
+        const data: { items: Item[] } = await response.json();
+        setItems(data.items);
+        console.log(data.items);
+        console.log("Fetched data:", itemss);
+      } catch (error) {
+        setItems([
+          {
+            title: "string",
+            startTime: "string",
+            staff: 4,
+            photo: [{ href: "string" }],
+            Author: "string",
+            description: "string",
+          },
+        ]);
+      }
+    };
+    fetchData();
+  }, []);
 
   const [capturePhotos, setCapturePhotos] = useState(false);
   const [photoUrl, setPhotoUrl] = useState<string | null>(null);
