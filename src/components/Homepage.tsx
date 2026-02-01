@@ -19,22 +19,179 @@ type Item = {
   Author: string;
   description: string;
 };
-
+const items: Item[] = [
+  {
+    title: "Learn AI Basics and apply Them now nwo",
+    startTime: "12/30/2024",
+    staff: 69,
+    photo: [
+      { href: "https://example.com/photo1.jpg" },
+      { href: "https://example.com/photo1.jpg" },
+      { href: "https://example.com/photo1.jpg" },
+    ],
+    Author: "John Doe",
+    description: "An introductory course to AI.",
+  },
+  {
+    title: "Marketing 101",
+    startTime: "01/15/2025",
+    staff: 45,
+    photo: [{ href: "https://example.com/photo2.jpg" }],
+    Author: "Jane Smith",
+    description: "Basics of marketing strategies.",
+  },
+  {
+    title: "Design Principles",
+    startTime: "02/10/2025",
+    staff: 30,
+    photo: [{ href: "https://example.com/photo3.jpg" }],
+    Author: "Alice Johnson",
+    description: "Fundamentals of design.",
+  },
+  {
+    title: "Photography Masterclass",
+    startTime: "03/05/2025",
+    staff: 25,
+    photo: [{ href: "https://example.com/photo4.jpg" }],
+    Author: "Bob Brown",
+    description: "Advanced photography techniques.",
+  },
+  {
+    title: "Business Strategies",
+    startTime: "04/20/2025",
+    staff: 50,
+    photo: [{ href: "https://example.com/photo5.jpg" }],
+    Author: "Charlie Davis",
+    description: "Effective business strategies.",
+  },
+  {
+    title: "Advanced AI",
+    startTime: "05/15/2025",
+    staff: 40,
+    photo: [{ href: "https://example.com/photo6.jpg" }],
+    Author: "Diana Evans",
+    description: "In-depth AI concepts.",
+  },
+  {
+    title: "Learn AI Basics and apply Them now nwo",
+    startTime: "12/30/2024",
+    staff: 69,
+    photo: [
+      { href: "https://example.com/photo1.jpg" },
+      { href: "https://example.com/photo1.jpg" },
+      { href: "https://example.com/photo1.jpg" },
+    ],
+    Author: "John Doe",
+    description: "An introductory course to AI.",
+  },
+  {
+    title: "Marketing 101",
+    startTime: "01/15/2025",
+    staff: 45,
+    photo: [{ href: "https://example.com/photo2.jpg" }],
+    Author: "Jane Smith",
+    description: "Basics of marketing strategies.",
+  },
+  {
+    title: "Design Principles",
+    startTime: "02/10/2025",
+    staff: 30,
+    photo: [{ href: "https://example.com/photo3.jpg" }],
+    Author: "Alice Johnson",
+    description: "Fundamentals of design.",
+  },
+  {
+    title: "Photography Masterclass",
+    startTime: "03/05/2025",
+    staff: 25,
+    photo: [{ href: "https://example.com/photo4.jpg" }],
+    Author: "Bob Brown",
+    description: "Advanced photography techniques.",
+  },
+  {
+    title: "Business Strategies",
+    startTime: "04/20/2025",
+    staff: 50,
+    photo: [{ href: "https://example.com/photo5.jpg" }],
+    Author: "Charlie Davis",
+    description: "Effective business strategies.",
+  },
+  {
+    title: "Advanced AI",
+    startTime: "05/15/2025",
+    staff: 40,
+    photo: [{ href: "https://example.com/photo6.jpg" }],
+    Author: "Diana Evans",
+    description: "In-depth AI concepts.",
+  },
+  {
+    title: "Learn AI Basics and apply Them now nwo",
+    startTime: "12/30/2024",
+    staff: 69,
+    photo: [
+      { href: "https://example.com/photo1.jpg" },
+      { href: "https://example.com/photo1.jpg" },
+      { href: "https://example.com/photo1.jpg" },
+    ],
+    Author: "John Doe",
+    description: "An introductory course to AI.",
+  },
+  {
+    title: "Marketing 101",
+    startTime: "01/15/2025",
+    staff: 45,
+    photo: [{ href: "https://example.com/photo2.jpg" }],
+    Author: "Jane Smith",
+    description: "Basics of marketing strategies.",
+  },
+  {
+    title: "Design Principles",
+    startTime: "02/10/2025",
+    staff: 30,
+    photo: [{ href: "https://example.com/photo3.jpg" }],
+    Author: "Alice Johnson",
+    description: "Fundamentals of design.",
+  },
+  {
+    title: "Photography Masterclass",
+    startTime: "03/05/2025",
+    staff: 25,
+    photo: [{ href: "https://example.com/photo4.jpg" }],
+    Author: "Bob Brown",
+    description: "Advanced photography techniques.",
+  },
+  {
+    title: "Business Strategies",
+    startTime: "04/20/2025",
+    staff: 50,
+    photo: [{ href: "https://example.com/photo5.jpg" }],
+    Author: "Charlie Davis",
+    description: "Effective business strategies.",
+  },
+  {
+    title: "Advanced AI",
+    startTime: "05/15/2025",
+    staff: 40,
+    photo: [{ href: "https://example.com/photo6.jpg" }],
+    Author: "Diana Evans",
+    description: "In-depth AI concepts.",
+  },
+];
 const Homepage = () => {
-  const [items, setItems] = useState<Item[]>([]);
+  //   const [items, setItems] = useState<Item[]>([]);
   const [selectedButton, setSelectedButton] = useState(1);
   const [truee, setTrue] = useState(false);
   const [open, setOpen] = useState(false);
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("http://localhost:3000/");
-      const data: { items: Item[] } = await response.json();
-      setItems(data.items);
-      console.log(data.items);
-      console.log("Fetched data:", data);
-    };
-    fetchData();
-  }, []);
+  //   useEffect(() => {
+  //     const fetchData = async () => {
+  //       const response = await fetch("http://localhost:3000/");
+  //       const data: { items: Item[] } = await response.json();
+  //       setItems(data.items);
+  //       console.log(data.items);
+  //       console.log("Fetched data:", data);
+  //     };
+  //     fetchData();
+  //   }, []);
 
   const [capturePhotos, setCapturePhotos] = useState(false);
   const [photoUrl, setPhotoUrl] = useState<string | null>(null);
