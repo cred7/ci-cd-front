@@ -189,8 +189,8 @@ const Homepage = () => {
         const data: { items: Item[] } = await response.json();
         setItems(data.items);
         console.log(data.items);
-        console.log("Fetched data:", itemss);
       } catch (error) {
+        console.error("Error fetching data:", error);
         setItems([
           {
             title: "string",
@@ -204,6 +204,7 @@ const Homepage = () => {
       }
     };
     fetchData();
+    console.log("Fetched data:", itemss);
   }, []);
 
   const [capturePhotos, setCapturePhotos] = useState(false);
