@@ -35,6 +35,48 @@ const Homepage = () => {
     };
     fetchData();
   }, []);
+
+  const [capturePhotos, setCapturePhotos] = useState(false);
+  const [photoUrl, setPhotoUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (capturePhotos === true) {
+      // Delay to ensure video element is rendered
+      setTimeout(() => {
+        navigator.mediaDevices
+          .getUserMedia({ video: true, audio: false })
+          .then((stream) => {
+            const videoElement = document.getElementById(
+              "home",
+            ) as HTMLVideoElement;
+            if (videoElement) {
+              videoElement.srcObject = stream;
+            }
+          })
+          .catch((err) => console.error("Camera error:", err));
+      }, 0);
+    }
+  }, [capturePhotos]);
+
+  const capturePhoto = () => {
+    setCapturePhotos(true);
+  };
+  const snapPhoto = () => {
+    const video = document.getElementById("home") as HTMLVideoElement;
+    const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+    const context = canvas.getContext("2d");
+
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    context?.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    const photoUrl = canvas.toDataURL("image/png");
+    setPhotoUrl(photoUrl);
+
+    console.log(photoUrl);
+    setCapturePhotos(false);
+  };
+
   return (
     <section className="w-screen relative bg-amber-50">
       <nav className="min-w-full  bg-blue-950">
@@ -130,13 +172,49 @@ const Homepage = () => {
       </div>
       <section className="max-w-7xl m-auto ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+          <div className="w-full flex items-center flex-col">
+            <button
+              onClick={capturePhoto}
+              className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+            >
+              Capture Photo
+            </button>
+            <button
+              id="snap"
+              className="absolutke left-0 right-0 text-white bg-green-300 "
+              onClick={snapPhoto}
+            >
+              Take photo
+            </button>
+            {capturePhotos && (
+              <video
+                id="home"
+                // autoPlay
+                controls
+                muted
+                className="w-full h-full relative"
+              ></video>
+            )}
+          </div>
+          <canvas id="canvas" className="hidden"></canvas>
+          {photoUrl && (
+            <div className="">
+              <img
+                id="captured-photo"
+                alt="Captured"
+                className="w-full h-full object-cover border border-dashed border-gray-300"
+                src={photoUrl || undefined}
+              />
+            </div>
+          )}
+
           {items.map((item, index) => (
             <div
               key={index}
               className="m-5 bg-white rounded-xl overflow-hidden shadow-lg"
             >
               <div className="w-full flex flex-col items-start p-3">
-                <h1 className="text-2xl w-full bh3 sm:bh4 line-clamp-2 text-start font-bold">
+                <h1 className="text-2xl text-black w-full bh3 sm:bh4 line-clamp-2 text-start font-bold">
                   {item.title}
                 </h1>
                 <div className="flex w-full text-sm justify-between mt-2 font-sans">
