@@ -21,7 +21,7 @@ type Item = {
 };
 const items: Item[] = [
   {
-    title: "Learn AI Basics and apply Them now nwo",
+    title: "Learn Omondi AI Basics and apply Them now nwo",
     startTime: "12/30/2024",
     staff: 69,
     photo: [
@@ -378,7 +378,7 @@ const Homepage = () => {
             </div>
           )}
 
-          {items.map((item, index) => (
+          {itemss.map((item, index) => (
             <div
               key={index}
               className="m-5 bg-white rounded-xl overflow-hidden shadow-lg"
