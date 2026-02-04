@@ -19,22 +19,234 @@ type Item = {
   Author: string;
   description: string;
 };
-
+const items: Item[] = [
+  {
+    title: "Learn Omondi AI Basics and apply Them now nwo",
+    startTime: "12/30/2024",
+    staff: 69,
+    photo: [
+      { href: "https://example.com/photo1.jpg" },
+      { href: "https://example.com/photo1.jpg" },
+      { href: "https://example.com/photo1.jpg" },
+    ],
+    Author: "John Doe",
+    description: "An introductory course to AI.",
+  },
+  {
+    title: "Marketing 101",
+    startTime: "01/15/2025",
+    staff: 45,
+    photo: [{ href: "https://example.com/photo2.jpg" }],
+    Author: "Jane Smith",
+    description: "Basics of marketing strategies.",
+  },
+  {
+    title: "Design Principles",
+    startTime: "02/10/2025",
+    staff: 30,
+    photo: [{ href: "https://example.com/photo3.jpg" }],
+    Author: "Alice Johnson",
+    description: "Fundamentals of design.",
+  },
+  {
+    title: "Photography Masterclass",
+    startTime: "03/05/2025",
+    staff: 25,
+    photo: [{ href: "https://example.com/photo4.jpg" }],
+    Author: "Bob Brown",
+    description: "Advanced photography techniques.",
+  },
+  {
+    title: "Business Strategies",
+    startTime: "04/20/2025",
+    staff: 50,
+    photo: [{ href: "https://example.com/photo5.jpg" }],
+    Author: "Charlie Davis",
+    description: "Effective business strategies.",
+  },
+  {
+    title: "Advanced AI",
+    startTime: "05/15/2025",
+    staff: 40,
+    photo: [{ href: "https://example.com/photo6.jpg" }],
+    Author: "Diana Evans",
+    description: "In-depth AI concepts.",
+  },
+  {
+    title: "Learn AI Basics and apply Them now nwo",
+    startTime: "12/30/2024",
+    staff: 69,
+    photo: [
+      { href: "https://example.com/photo1.jpg" },
+      { href: "https://example.com/photo1.jpg" },
+      { href: "https://example.com/photo1.jpg" },
+    ],
+    Author: "John Doe",
+    description: "An introductory course to AI.",
+  },
+  {
+    title: "Marketing 101",
+    startTime: "01/15/2025",
+    staff: 45,
+    photo: [{ href: "https://example.com/photo2.jpg" }],
+    Author: "Jane Smith",
+    description: "Basics of marketing strategies.",
+  },
+  {
+    title: "Design Principles",
+    startTime: "02/10/2025",
+    staff: 30,
+    photo: [{ href: "https://example.com/photo3.jpg" }],
+    Author: "Alice Johnson",
+    description: "Fundamentals of design.",
+  },
+  {
+    title: "Photography Masterclass",
+    startTime: "03/05/2025",
+    staff: 25,
+    photo: [{ href: "https://example.com/photo4.jpg" }],
+    Author: "Bob Brown",
+    description: "Advanced photography techniques.",
+  },
+  {
+    title: "Business Strategies",
+    startTime: "04/20/2025",
+    staff: 50,
+    photo: [{ href: "https://example.com/photo5.jpg" }],
+    Author: "Charlie Davis",
+    description: "Effective business strategies.",
+  },
+  {
+    title: "Advanced AI",
+    startTime: "05/15/2025",
+    staff: 40,
+    photo: [{ href: "https://example.com/photo6.jpg" }],
+    Author: "Diana Evans",
+    description: "In-depth AI concepts.",
+  },
+  {
+    title: "Learn AI Basics and apply Them now nwo",
+    startTime: "12/30/2024",
+    staff: 69,
+    photo: [
+      { href: "https://example.com/photo1.jpg" },
+      { href: "https://example.com/photo1.jpg" },
+      { href: "https://example.com/photo1.jpg" },
+    ],
+    Author: "John Doe",
+    description: "An introductory course to AI.",
+  },
+  {
+    title: "Marketing 101",
+    startTime: "01/15/2025",
+    staff: 45,
+    photo: [{ href: "https://example.com/photo2.jpg" }],
+    Author: "Jane Smith",
+    description: "Basics of marketing strategies.",
+  },
+  {
+    title: "Design Principles",
+    startTime: "02/10/2025",
+    staff: 30,
+    photo: [{ href: "https://example.com/photo3.jpg" }],
+    Author: "Alice Johnson",
+    description: "Fundamentals of design.",
+  },
+  {
+    title: "Photography Masterclass",
+    startTime: "03/05/2025",
+    staff: 25,
+    photo: [{ href: "https://example.com/photo4.jpg" }],
+    Author: "Bob Brown",
+    description: "Advanced photography techniques.",
+  },
+  {
+    title: "Business Strategies",
+    startTime: "04/20/2025",
+    staff: 50,
+    photo: [{ href: "https://example.com/photo5.jpg" }],
+    Author: "Charlie Davis",
+    description: "Effective business strategies.",
+  },
+  {
+    title: "Advanced AI",
+    startTime: "05/15/2025",
+    staff: 40,
+    photo: [{ href: "https://example.com/photo6.jpg" }],
+    Author: "Diana Evans",
+    description: "In-depth AI concepts.",
+  },
+];
 const Homepage = () => {
-  const [items, setItems] = useState<Item[]>([]);
+  const [itemss, setItems] = useState<Item[]>([]);
   const [selectedButton, setSelectedButton] = useState(1);
   const [truee, setTrue] = useState(false);
   const [open, setOpen] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://localhost:3000/");
-      const data: { items: Item[] } = await response.json();
-      setItems(data.items);
-      console.log(data.items);
-      console.log("Fetched data:", data);
+      try {
+        const response = await fetch("http://localhost:3000/");
+        const data: { items: Item[] } = await response.json();
+        setItems(data.items);
+        console.log(data.items);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setItems([
+          {
+            title: "string",
+            startTime: "string",
+            staff: 4,
+            photo: [{ href: "string" }],
+            Author: "string",
+            description: "string",
+          },
+        ]);
+      }
     };
     fetchData();
   }, []);
+  console.log("Fetched data:", itemss);
+  const [capturePhotos, setCapturePhotos] = useState(false);
+  const [photoUrl, setPhotoUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (capturePhotos === true) {
+      // Delay to ensure video element is rendered
+      setTimeout(() => {
+        navigator.mediaDevices
+          .getUserMedia({ video: true, audio: false })
+          .then((stream) => {
+            const videoElement = document.getElementById(
+              "home",
+            ) as HTMLVideoElement;
+            if (videoElement) {
+              videoElement.srcObject = stream;
+            }
+          })
+          .catch((err) => console.error("Camera error:", err));
+      }, 0);
+    }
+  }, [capturePhotos]);
+
+  const capturePhoto = () => {
+    setCapturePhotos(true);
+  };
+  const snapPhoto = () => {
+    const video = document.getElementById("home") as HTMLVideoElement;
+    const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+    const context = canvas.getContext("2d");
+
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    context?.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    const photoUrl = canvas.toDataURL("image/png");
+    setPhotoUrl(photoUrl);
+
+    console.log(photoUrl);
+    setCapturePhotos(false);
+  };
+
   return (
     <section className="w-screen relative bg-amber-50">
       <nav className="min-w-full  bg-blue-950">
@@ -46,6 +258,7 @@ const Homepage = () => {
               </div>
               <div className="flex flex-row">
                 {" "}
+                {/* by pass protection is on */}
                 <h1 className="text-3xl bg-transparent text-white">Maven</h1>
                 <input
                   type="text"
@@ -129,13 +342,49 @@ const Homepage = () => {
       </div>
       <section className="max-w-7xl m-auto ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-          {items.map((item, index) => (
+          <div className="w-full flex items-center flex-col">
+            <button
+              onClick={capturePhoto}
+              className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+            >
+              Capture Photo
+            </button>
+            <button
+              id="snap"
+              className="absolutke left-0 right-0 text-white bg-green-300 "
+              onClick={snapPhoto}
+            >
+              Take photo
+            </button>
+            {capturePhotos && (
+              <video
+                id="home"
+                // autoPlay
+                controls
+                muted
+                className="w-full h-full relative"
+              ></video>
+            )}
+          </div>
+          <canvas id="canvas" className="hidden"></canvas>
+          {photoUrl && (
+            <div className="">
+              <img
+                id="captured-photo"
+                alt="Captured"
+                className="w-full h-full object-cover border border-dashed border-gray-300"
+                src={photoUrl || undefined}
+              />
+            </div>
+          )}
+
+          {itemss.map((item, index) => (
             <div
               key={index}
               className="m-5 bg-white rounded-xl overflow-hidden shadow-lg"
             >
               <div className="w-full flex flex-col items-start p-3">
-                <h1 className="text-2xl w-full bh3 sm:bh4 line-clamp-2 text-start font-bold">
+                <h1 className="text-2xl text-black w-full bh3 sm:bh4 line-clamp-2 text-start font-bold">
                   {item.title}
                 </h1>
                 <div className="flex w-full text-sm justify-between mt-2 font-sans">
